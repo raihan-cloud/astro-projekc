@@ -1,4 +1,4 @@
-# Rizwan Ali — Portfolio Website
+# Raihan Muzhaffar — Portfolio Website
 
 A modern, responsive personal portfolio built with **Astro** + **Tailwind CSS**.
 
@@ -14,7 +14,7 @@ A modern, responsive personal portfolio built with **Astro** + **Tailwind CSS**.
 
 ```bash
 # 1. Navigate into the project folder
-cd rizwan-portfolio
+cd raihan-portfolio
 
 # 2. Install dependencies
 npm install
