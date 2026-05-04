@@ -1,0 +1,85 @@
+---
+const services = [
+  {
+    // Icon: Cloud / Server
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15a4.5 4.5 0 004.5 4.5H18a3.75 3.75 0 001.332-7.257 3 3 0 00-3.758-3.848 5.25 5.25 0 00-10.233 2.33A4.502 4.502 0 002.25 15z" />`,
+    color:   'from-blue-500 to-blue-700',
+    bg:      'group-hover:bg-blue-600',
+    title:   'Cloud Computing',
+    desc:    'Merancang arsitektur cloud yang scalable dan aman menggunakan platform terkemuka untuk memastikan ketersediaan tinggi sistem Anda.',
+    tags:    ['AWS/Azure', 'Scalability', 'Architecture'],
+  },
+  {
+    // Icon: Terminal / DevOps
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 7.5l3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0021 18V6a2.25 2.25 0 00-2.25-2.25H5.25A2.25 2.25 0 003 6v12a2.25 2.25 0 002.25 2.25z" />`,
+    color:   'from-indigo-500 to-indigo-700',
+    bg:      'group-hover:bg-indigo-600',
+    title:   'DevOps & CI/CD',
+    desc:    'Otomatisasi alur kerja pengembangan dengan pipeline CI/CD, kontainerisasi (Docker), dan manajemen konfigurasi yang efisien.',
+    tags:    ['Docker', 'Jenkins', 'Automation'],
+  },
+  {
+    // Icon: Signal / IoT
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9.348 14.651a3.75 3.75 0 010-5.303m5.304 0a3.75 3.75 0 010 5.303m-7.425 2.122a6.75 6.75 0 010-9.546m9.546 0a6.75 6.75 0 010 9.546M5.106 18.894c-3.808-3.808-3.808-9.982 0-13.79m13.788 0c3.808 3.808 3.808 9.981 0 13.79M12 12h.008v.008H12V12z" />`,
+    color:   'from-cyan-500 to-cyan-700',
+    bg:      'group-hover:bg-cyan-600',
+    title:   'IoT Solutions',
+    desc:    'Membangun sistem pemantauan cerdas berbasis MQTT untuk integrasi hardware-software yang responsif dan real-time.',
+    tags:    ['MQTT', 'Smart System', 'Real-time'],
+  },
+  {
+    // Icon: Shield / Security
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751A11.959 11.959 0 0112 2.714z" />`,
+    color:   'from-slate-600 to-slate-800',
+    bg:      'group-hover:bg-slate-700',
+    title:   'System Security',
+    desc:    'Implementasi pengerasan server (server hardening) dan pemantauan keamanan berkala untuk melindungi infrastruktur dari ancaman.',
+    tags:    ['Hardening', 'Linux', 'Monitoring'],
+  },
+];
+---
+
+<section id="services" class="py-24 bg-slate-50">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="text-center mb-16" data-animate>
+      <p class="text-blue-600 font-semibold tracking-widest text-sm uppercase mb-2">Technical Expertise</p>
+      <h2 class="font-display font-bold text-4xl text-slate-800">My <span class="text-blue-600">Services</span></h2>
+      <p class="text-slate-400 mt-4 max-w-md mx-auto">
+        Solusi infrastruktur end-to-end yang dioptimalkan untuk performa, keamanan, dan skalabilitas.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {services.map((s, i) => (
+        <div
+          data-animate
+          class={`group relative bg-white rounded-3xl p-7 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-default animation-delay-${i * 200}`}
+        >
+          <!-- Icon -->
+          <div class={`w-14 h-14 rounded-2xl bg-gradient-to-br ${s.color} flex items-center justify-center mb-5 shadow-lg`}>
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+              <Fragment set:html={s.icon} />
+            </svg>
+          </div>
+
+          <h3 class="font-display font-bold text-lg text-slate-800 mb-3">{s.title}</h3>
+          <p class="text-slate-400 text-sm leading-relaxed mb-5">{s.desc}</p>
+
+          <!-- Tags -->
+          <div class="flex flex-wrap gap-2">
+            {s.tags.map(tag => (
+              <span class="text-xs font-medium bg-slate-100 text-slate-500 px-2.5 py-1 rounded-full">
+                {tag}
+              </span>
+            ))}
+          </div>
+
+          <!-- Hover border glow -->
+          <div class={`absolute inset-0 rounded-3xl bg-gradient-to-br ${s.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300 pointer-events-none`}></div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

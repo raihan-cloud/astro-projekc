@@ -1,0 +1,80 @@
+---
+const testimonials = [
+  {
+    name:    'Alex Rivera',
+    role:    'CTO, DataStream Inc.',
+    rating: 5,
+    text:    'Raihan membangun infrastruktur cloud kami dengan sangat efisien. Otomatisasi CI/CD yang ia terapkan memangkas waktu deployment kami hingga 50%. Sangat profesional!',
+    initials: 'AR',
+    bg:       'from-blue-500 to-indigo-600',
+  },
+  {
+    name:    'Budi Santoso',
+    role:    'Lead IoT Developer',
+    rating: 5,
+    text:    'Integrasi MQTT untuk sistem smart locker yang ia kembangkan sangat stabil. Dashboard-nya intuitif dan penanganan datanya sangat rapi.',
+    initials: 'BS',
+    bg:       'from-cyan-500 to-blue-500',
+  },
+  {
+    name:    'Jessica Chen',
+    role:    'Senior Backend Engineer',
+    rating: 5,
+    text:    'Bekerja sama dalam proyek Django SIAKAD sangat menyenangkan. Raihan memiliki pemahaman yang kuat tentang manajemen database dan arsitektur server yang aman.',
+    initials: 'JC',
+    bg:       'from-slate-600 to-slate-800',
+  },
+];
+---
+
+<section id="testimonials" class="py-24 bg-gradient-to-br from-slate-50 to-blue-50">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="text-center mb-16" data-animate>
+      <p class="text-blue-600 font-semibold tracking-widest text-sm uppercase mb-2">Social Proof</p>
+      <h2 class="font-display font-bold text-4xl text-slate-800">Technical <span class="text-blue-600">Reviews</span></h2>
+      <p class="text-slate-400 mt-4 max-w-md mx-auto">
+        Apa kata rekan tim dan klien mengenai solusi infrastruktur serta pengembangan sistem yang saya bangun.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {testimonials.map((t, i) => (
+        <div
+          data-animate
+          class={`bg-white rounded-3xl p-7 shadow-sm border border-slate-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animation-delay-${i * 200}`}
+        >
+          <!-- Quote icon -->
+          <div class="text-blue-100 mb-4">
+            <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+            </svg>
+          </div>
+
+          <!-- Stars -->
+          <div class="flex gap-1 mb-4">
+            {Array(t.rating).fill(null).map(() => (
+              <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+              </svg>
+            ))}
+          </div>
+
+          <p class="text-slate-500 text-sm leading-relaxed mb-6 italic">"{t.text}"</p>
+
+          <!-- Author -->
+          <div class="flex items-center gap-3 pt-4 border-t border-slate-100">
+            <div class={`w-11 h-11 rounded-full bg-gradient-to-br ${t.bg} flex items-center justify-center text-white font-display font-bold text-sm flex-shrink-0`}>
+              {t.initials}
+            </div>
+            <div>
+              <p class="font-display font-semibold text-slate-800 text-sm">{t.name}</p>
+              <p class="text-slate-400 text-xs">{t.role}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

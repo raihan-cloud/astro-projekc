@@ -1,0 +1,118 @@
+---
+const projects = [
+  {
+    gradient: 'from-blue-500 to-indigo-600',
+    category: 'IoT & Real-time System',
+    title:    'Smart Locker Monitoring',
+    desc:     'Sistem monitoring loker pintar berbasis MQTT menggunakan Flutter untuk dashboard dan Node-RED sebagai backend.',
+    tags:     ['MQTT', 'Flutter', 'Node-RED'],
+    link:     '#',
+  },
+  {
+    gradient: 'from-indigo-500 to-purple-600',
+    category: 'Backend Development',
+    title:    'SIAKAD Academic System',
+    desc:     'Pengembangan Sistem Informasi Akademik menggunakan Django dengan template Volt untuk manajemen data mahasiswa.',
+    tags:     ['Django', 'Python', 'PostgreSQL'],
+    link:     '#',
+  },
+  {
+    gradient: 'from-cyan-500 to-blue-600',
+    category: 'Cloud & Infrastructure',
+    title:    'NexusAI Assistant',
+    desc:     'Interface asisten profesional yang difokuskan untuk manajemen layanan Cloud dan monitoring perangkat IoT.',
+    tags:     ['HTML/CSS', 'Cloud Management', 'UI'],
+    link:     '#',
+  },
+];
+
+const filters = ['All', 'IoT', 'Cloud', 'Development'];
+---
+
+<section id="projects" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <div class="text-center mb-12" data-animate>
+      <p class="text-blue-600 font-semibold tracking-widest text-sm uppercase mb-2">Portfolio</p>
+      <h2 class="font-display font-bold text-4xl text-slate-800">My <span class="text-blue-600">Projects</span></h2>
+      <p class="text-slate-400 mt-4 max-w-md mx-auto">
+        Koleksi proyek teknis yang mencakup otomatisasi infrastruktur, pengembangan backend, dan integrasi sistem IoT.
+      </p>
+    </div>
+
+    <!-- Filter pills -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12" data-animate>
+      {filters.map((f, i) => (
+        <button
+          class={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${i === 0 ? 'bg-blue-600 text-white shadow-md' : 'bg-slate-100 text-slate-500 hover:bg-blue-50 hover:text-blue-600'}`}
+        >
+          {f}
+        </button>
+      ))}
+    </div>
+
+    <!-- Project cards -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {projects.map((p, i) => (
+        <article
+          data-animate
+          class={`group rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 animation-delay-${i * 200}`}
+        >
+          <!-- Preview image (Technical Mockup Style) -->
+          <div class={`relative h-52 bg-gradient-to-br ${p.gradient} overflow-hidden`}>
+            <!-- Mock terminal/code window chrome -->
+            <div class="absolute top-4 left-4 right-4 bg-slate-900/40 backdrop-blur-md rounded-xl p-3 border border-white/20">
+              <div class="flex items-center gap-2 mb-2">
+                <div class="w-2 h-2 rounded-full bg-red-400/80"></div>
+                <div class="w-2 h-2 rounded-full bg-amber-400/80"></div>
+                <div class="w-2 h-2 rounded-full bg-emerald-400/80"></div>
+                <span class="text-[10px] text-white/40 font-mono ml-2">bash — {p.tags[0].toLowerCase()}</span>
+              </div>
+              <div class="space-y-1.5">
+                <div class="h-1.5 bg-white/30 rounded w-3/4"></div>
+                <div class="h-1.5 bg-white/20 rounded w-1/2"></div>
+                <div class="h-1.5 bg-blue-400/30 rounded w-2/3"></div>
+              </div>
+            </div>
+            
+            <!-- Overlay on hover -->
+            <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+              <a href={p.link} class="bg-white text-slate-800 font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-blue-50 transition-colors">
+                Detail Proyek →
+              </a>
+            </div>
+          </div>
+
+          <!-- Info -->
+          <div class="p-6">
+            <p class="text-blue-500 text-xs font-semibold uppercase tracking-wide mb-1">{p.category}</p>
+            <h3 class="font-display font-bold text-lg text-slate-800 mb-2">{p.title}</h3>
+            <p class="text-slate-400 text-sm leading-relaxed mb-4">{p.desc}</p>
+            <div class="flex flex-wrap gap-2">
+              {p.tags.map(tag => (
+                <span class="text-xs font-medium bg-blue-50 text-blue-600 px-3 py-1 rounded-full border border-blue-100">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- View all CTA -->
+    <div class="text-center mt-12" data-animate>
+      <a
+        href="https://github.com/raihanmuzaffar"
+        target="_blank"
+        class="inline-flex items-center gap-2 border-2 border-blue-200 text-blue-600 font-semibold px-8 py-3 rounded-full hover:bg-blue-600 hover:text-white hover:border-blue-600 transition-all duration-200"
+      >
+        See More on GitHub
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</section>

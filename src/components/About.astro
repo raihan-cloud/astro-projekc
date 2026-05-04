@@ -1,0 +1,88 @@
+---
+const stats = [
+  {
+    // Icon: Terminal / Coding
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />`,
+    color: 'text-blue-600',
+    bg:    'bg-blue-50',
+    number: '15+',
+    label: 'Tech Stack Handled',
+    desc:  'Berpengalaman mengelola berbagai teknologi dari Linux, Docker, hingga Cloud Provider.',
+  },
+  {
+    // Icon: Cloud Upload
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A4.502 4.502 0 0118 19.5H6.75z" />`,
+    color: 'text-indigo-600',
+    bg:    'bg-indigo-50',
+    number: '20+',
+    label: 'Successful Deployments',
+    desc:  'Mengotomatisasi deployment aplikasi web dan sistem IoT ke lingkungan produksi.',
+  },
+  {
+    // Icon: Academic Cap / Education
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.174L11.24 14.5a.75.75 0 00.76 0l6.98-4.326a1.125 1.125 0 000-1.926L11.24 3.922a.75.75 0 00-.76 0L3.5 8.248a1.125 1.125 0 00.76 1.926z" /> <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.131V16.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125v-4.119l-5.64 3.49a2.25 2.25 0 01-2.25 0L4.5 12.131z" />`,
+    color: 'text-cyan-600',
+    bg:    'bg-cyan-50',
+    number: 'Final Year',
+    label: 'University Student',
+    desc:  'Menggabungkan dedikasi akademik dengan praktik industri DevOps secara nyata.',
+  },
+];
+---
+
+<section id="about" class="py-24 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+
+    <!-- Section header -->
+    <div class="text-center mb-16" data-animate>
+      <p class="text-blue-600 font-semibold tracking-widest text-sm uppercase mb-2">Who I Am</p>
+      <h2 class="font-display font-bold text-4xl text-slate-800">About <span class="text-blue-600">Me</span></h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: Image -->
+      <div class="relative" data-animate>
+        <div class="absolute -top-6 -left-6 w-64 h-64 bg-blue-50 rounded-3xl -z-10"></div>
+        <div class="relative w-full aspect-square max-w-sm mx-auto rounded-3xl overflow-hidden shadow-2xl">
+          <div class="w-full h-full bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center">
+             <!-- Placeholder Inisial untuk Engineer -->
+             <span class="text-white text-8xl font-bold font-display">RM</span>
+          </div>
+        </div>
+        <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-indigo-50 rounded-3xl -z-10"></div>
+      </div>
+
+      <!-- Right: Info -->
+      <div class="space-y-6" data-animate>
+        <h3 class="font-display font-bold text-2xl text-slate-800">
+          I'm Raihan Muzaffar, a dedicated <span class="text-blue-600">Cloud & DevOps Engineer</span>
+        </h3>
+        <p class="text-slate-500 leading-relaxed">
+          Sebagai mahasiswa yang berfokus pada teknik infrastruktur, saya memiliki minat mendalam dalam membangun sistem yang efisien dan otomatis. Saya percaya bahwa skalabilitas dan keamanan adalah fondasi dari setiap produk digital yang sukses.
+        </p>
+        <p class="text-slate-500 leading-relaxed">
+          Dari mengelola server Ubuntu hingga merancang dashboard monitoring IoT menggunakan MQTT, saya menikmati tantangan teknis yang memerlukan pemecahan masalah secara kreatif dan sistematis.
+        </p>
+
+        <!-- Stat cards -->
+        <div class="grid grid-cols-1 gap-4 pt-4">
+          {stats.map(stat => (
+            <div class="flex items-start gap-4 p-4 rounded-2xl border border-slate-100 shadow-sm hover:shadow-md transition-all duration-200 hover:border-blue-100 group">
+              <div class={`w-12 h-12 ${stat.bg} rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}>
+                <svg class={`w-6 h-6 ${stat.color}`} fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <Fragment set:html={stat.icon} />
+                </svg>
+              </div>
+              <div>
+                <p class="font-display font-bold text-lg text-slate-800">{stat.number} — {stat.label}</p>
+                <p class="text-slate-400 text-sm">{stat.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
